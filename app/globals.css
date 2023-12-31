@@ -16,6 +16,12 @@
   }
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -25,3 +31,64 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer utilities {
+  .css-invert {
+    @apply invert-[50%] brightness-200;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #09090a;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #5c5c7b;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #7878a3;
+  }
+}
+
+@layer components {
+  .leftsidebar {
+    @apply sticky left-0 top-0 pt-2 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-dark-4 bg-neutral-900  ;
+  }
+
+  .leftsidebar_link {
+    @apply relative flex justify-start hover:bg-neutral-500  rounded-lg px-4 py-2;
+  }
+
+  .bottombar {
+    @apply fixed bottom-0 z-10 w-full bg-neutral-900  p-4 md:hidden;
+  }
+
+  .bottombar_container {
+    @apply flex items-center justify-between gap-3 ;
+  }
+
+  .bottombar_link {
+    @apply relative flex flex-col items-center gap-2 rounded-lg p-2 sm:flex-1 sm:px-2 sm:py-1;
+  }
+
+  .users_products_link {
+    @apply text-center w-full items-center justify-center flex overflow-hidden max-sm:justify-start ;
+  }
+
+}
+
+.home-sv-a {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0 auto;
+  gap: 20px;
+}
+
