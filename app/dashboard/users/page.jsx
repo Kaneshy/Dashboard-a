@@ -24,7 +24,7 @@ const UsersPage = () => {
         <div className='flex justify-between'>
           <Searchbar />
           <div className='bg-purple-900 p-2 rounded-lg'>
-            <Link href='/dashboard/users/New'> Add new Product </Link>
+            <Link href='/dashboard/users/New'> Add new user </Link>
           </div>
         </div>
       </div>

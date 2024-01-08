@@ -1,53 +1,60 @@
+import { MdDashboardCustomize } from "react-icons/md";
+import { IoAnalyticsSharp } from "react-icons/io5";
+import { AiFillAmazonCircle } from "react-icons/ai";
+import { FaUserFriends } from "react-icons/fa";
+import { LuShoppingBag } from "react-icons/lu";
+import { FaNodeJs } from "react-icons/fa";
+import { IoMdHelpCircleOutline } from "react-icons/io";
+
+
+
+
+
 export const leftsidebarPages = [
     {
-        imgURL: "/assets/heart.svg",
         route: "/dashboard",
         label: "Dashboard",
+        iconReact: <MdDashboardCustomize size={30} />
     },
     {
-        imgURL: "/assets/heart.svg",
         route: "/dashboard/Analytics",
         label: "Analytics",
-    },
-    {
-        imgURL: "/assets/heart.svg",
-        route: "/dashboard/Analytics",
-        label: "Analytics",
-    },
-    {
-        imgURL: "/assets/heart.svg",
-        route: "/dashboard/Analytics",
-        label: "Analytics",
+        iconReact: <IoAnalyticsSharp size={30} />
     }
 ]
 
 export const leftsidebarAnalytics = [
     {
-        imgURL: "/assets/heart.svg",
         route: "/dashboard/users",
-        label: "Users",
+        label: "Suppliers",
+        iconReact: <AiFillAmazonCircle size={30} />
+
     },
     {
-        imgURL: "/assets/heart.svg",
         route: "/dashboard/products",
         label: "Products",
+        iconReact: <LuShoppingBag   size={30} />
+
     },
     {
-        imgURL: "/assets/heart.svg",
         route: "/transactions",
-        label: "Transactions",
+        label: "Users",
+        iconReact: <FaUserFriends  size={30} />
+
     }
 ]
 
 export const leftsidebarUser = [
     {
-        imgURL: "/assets/heart.svg",
         route: "/settings",
-        label: "Settings",
+        label: "API",
+        iconReact: <FaNodeJs  size={30} />
+
     },
     {
-        imgURL: "/assets/heart.svg",
         route: "/Help",
-        label: "Teports",
+        label: "Help",
+        iconReact: <IoMdHelpCircleOutline  size={30} />
+
     }
 ]

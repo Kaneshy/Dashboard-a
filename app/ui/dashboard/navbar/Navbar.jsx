@@ -7,7 +7,7 @@ const Navbar = () => {
     <main className='p-4 rounded-xl flex justify-between bg-neutral-900 items-center'>
       <section>Dashboard</section>
       <section className='flex'> 
-      <GoogleAuth />
+      {/* <GoogleAuth /> */}
         <Searchbar />
       </section>
     </main>

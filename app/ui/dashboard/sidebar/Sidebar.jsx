@@ -68,43 +68,33 @@ const Sidebar = () => {
       </div> */}
 
 
-      <p className='px-6 py-2'>Pages</p>
+      <p className='pl-6 py-2 text-small-semibold '>HOME</p>
       <div className="flex w-full flex-1 flex-col gap-3 px-6">
         {leftsidebarPages.map((link) => {
           const isActive = (pathname.includes(link.route) && link.route.length > 1)// || pathname === link.route
           return (
             <Link
               href={link.route}
-              key={link.label}
+              key={`${link.label}leftsidebarPages`}
               className={`leftsidebar_link ${isActive && 'bg-primary-500'}`}
             >
-              <Image
-                src={link.imgURL}
-                alt={link.label}
-                width={24}
-                height={24}
-              />
+              {link.iconReact}
               <p className={`text-light-1 max-lg:hidden px-4 `}>{link.label}</p>
             </Link>
           )
         })}
       </div>
-      <p className='px-6 py-2'>Analitics</p>
+      <p className='pl-6 py-2 text-small-semibold'>ANALYTICS</p>
       <div className="flex w-full flex-1 flex-col gap-3 px-6">
-        {leftsidebarAnalytics.map((link) => {
+        {leftsidebarAnalytics.map((link, i) => {
           const isActive = (pathname.includes(link.route) && link.route.length > 1)// || pathname === link.route
           return (
             <Link
               href={link.route}
-              key={link.label}
+              key={`${link.label}${i}`}
               className={`leftsidebar_link ${isActive && 'bg-primary-500'}`}
             >
-              <Image
-                src={link.imgURL}
-                alt={link.label}
-                width={24}
-                height={24}
-              />
+              {link.iconReact}
               <p className={`text-light-1 max-lg:hidden px-4 `}>{link.label}</p>
             </Link>
           )
@@ -131,7 +121,7 @@ const Sidebar = () => {
           )
         })}
       </div> */}
-      <p className='px-6 py-2'>User</p>
+      <p className='pl-6 py-2 text-small-semibold'>SETTINGS</p>
       <div className="flex w-full pt-2 flex-1 flex-col gap-5 px-6 ">
         {leftsidebarUser.map((link) => {
           const isActive = (pathname.includes(link.label) && link.route.length > 1)// || pathname === link.route
@@ -139,15 +129,10 @@ const Sidebar = () => {
           return (
             <Link
               href={`${link.route}/${link.label}`}
-              key={link.label}
+              key={`${link.label}leftsidebarUser`}
               className={`leftsidebar_link  ${isActive && 'bg-primary-500'}`}
             >
-              <Image
-                src={link.imgURL}
-                alt={link.label}
-                width={34}
-                height={34}
-              />
+               {link.iconReact}
               <p className={`text-light-1 max-lg:hidden px-4 `}>{link.label}</p>
             </Link>
           )

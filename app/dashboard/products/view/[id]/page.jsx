@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react'
 const ViewPage = ({ params }) => {
 
     const [preValue, setPreValue] = useState({})
+    const [selectedClothing, setSelectedClothing] = useState([]);
+    const [selectedSize, setselectedSize] = useState([]);
     const rounter = useRouter()
 
     useEffect(() => {
@@ -17,6 +19,8 @@ const ViewPage = ({ params }) => {
             }
             console.log('eagle', resUp.data)
             console.log('dd', resUp.data.address)
+            setSelectedClothing(resUp.data.selectedClothing)
+            setselectedSize(resUp.data.selectedSize)
 
         }
         updatedproduct()
@@ -26,7 +30,7 @@ const ViewPage = ({ params }) => {
         try {
             const res = await axios.delete(`/api/product/${params.id}`)
             console.log(res)
-            if(res.status == 200){
+            if (res.status == 200) {
                 rounter.push('/dashboard/products')
             }
         } catch (error) {
@@ -47,16 +51,16 @@ const ViewPage = ({ params }) => {
             </div>
             <div>
                 <h1 className='text-center  font-bold text-2xl text-white border-a1 pb-2 mb-6 '>Upload your video </h1>
-                <section className="w-full bg-neutral-950 rounded-2xl items-center flex justify-center mb-4">
-                    <div className="w-52 h-52 flex object-fill">
-                        <img className="w-full flex" src={preValue.imgUrl} alt="" />
+                <section className="w-full select-none bg-neutral-950 rounded-2xl items-center flex justify-center mb-4">
+                    <div className="h-96 flex ">
+                        <img className="flex object-contain" src={preValue.imgUrl} alt="" />
                     </div>
                 </section>
             </div>
             <div className="max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Title (required): </label>
+                    <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">title (required): </label>
                     <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.title}</p>
                 </div>
 
@@ -76,9 +80,44 @@ const ViewPage = ({ params }) => {
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="size" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Size (required): </label>
-                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.size}</p>
+                    <label htmlFor="brand" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Brand (Marca): </label>
+                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.brand}</p>
                 </div>
+
+                <div className="mb-4 border-gray-500 border   p-2 w-full">
+                    <label htmlFor="sex" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Sex: </label>
+                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.sex}</p>
+                </div>
+
+                <section className="mb-4 border-gray-500 border p-2 w-full">
+                    <div className="mb-4 border-gray-500 border p-2 w-full">
+                        <h3>Categorie:</h3>
+                    </div>
+                    <div className="mb-4  border-gray-500 border  p-2 w-full">
+                        <div className="gap-2 p-2">
+                            {selectedClothing.map((item, index) => (
+                                <button
+                                    style={{ margin: '5px' }}
+                                    className="p-2 rounded bg-slate-600" key={`${index * 5}`}>{item}</button>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className="mb-4 border-gray-500 border p-2 w-full">
+                    <div className="mb-4 border-gray-500 border p-2 w-full">
+                        <h3>Size (Talla):</h3>
+                    </div>
+                    <div className="mb-4  border-gray-500 border  p-2 w-full">
+                        <div className="gap-2 p-2">
+                            {selectedSize.map((item, index) => (
+                                <button
+                                    style={{ margin: '5px' }}
+                                    className="p-2 rounded bg-slate-600" key={`${index * 2}`}>{item}</button>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
                     <label htmlFor="description" className="text-small-semibold block text-gray-400 font-bold mb-2">Description:</label>

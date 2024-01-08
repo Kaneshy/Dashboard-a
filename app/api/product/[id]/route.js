@@ -39,9 +39,12 @@ export async function PUT(request, { params }) {
             color:da.color,
             stock:da.stock,
             imgUrl: da.imgUrl,
-            size:da.size,
+            brand:da.brand,
             desc:da.desc,
-            categorie:da.categorie
+            categorie:da.categorie,
+            selectedClothing:da.selectedClothing,
+            selectedSize:da.selectedSize,
+            sex:da.sex
         }
         console.log('da', da)
         const productUpdated = await Products.findByIdAndUpdate(params.id,

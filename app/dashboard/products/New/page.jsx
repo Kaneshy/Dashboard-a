@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
     getStorage,
     ref,
@@ -9,6 +9,9 @@ import {
 import app from "@/firebase";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { prendas, sizes } from "@/constants/Prendas";
+
+
 
 const UploadProductsPage = () => {
     const [img, setImg] = useState(undefined);
@@ -19,7 +22,10 @@ const UploadProductsPage = () => {
     const [tags, setTags] = useState([]);
     const router = useRouter()
     const [adminValue, setAdminValue] = useState(false)
-    
+
+    const [selectedClothing, setSelectedClothing] = useState([]);
+    const [selectedSize, setselectedSize] = useState([]);
+
     const handleChange = (e) => {
         setInputs((prev) => {
             return { ...prev, [e.target.name]: e.target.value };
@@ -82,13 +88,15 @@ const UploadProductsPage = () => {
     const handleUpload = async (e) => {
         e.preventDefault();
         const adminB = {
-            categorie: adminValue,
+            sex: adminValue,
         }
-        const data = {...adminB, ...inputs}
+        const test = { ...adminB, ...inputs, selectedClothing, selectedSize }
+        console.log('ososgggg', test)
+        const data = { ...adminB, ...inputs, selectedClothing, selectedSize }
         console.log(data)
 
         try {
-            const res = await axios.post("/api/product", { ...data})
+            const res = await axios.post("/api/product", { ...data })
             console.log('upload status', res.data)
 
             if (res.status === 200) {
@@ -99,6 +107,27 @@ const UploadProductsPage = () => {
             console.log('ddd', error.message)
         }
     }
+
+    const handleClothingSelection = (clothing) => {
+        if (selectedClothing.includes(clothing)) {
+            // Si la prenda ya está seleccionada, la quitamos de la selección
+            setSelectedClothing(selectedClothing.filter(item => item !== clothing));
+        } else {
+            // Si la prenda no está seleccionada, la añadimos a la selección
+            setSelectedClothing([...selectedClothing, clothing]);
+        }
+    }
+
+    const handleSizeSelection = (clothing) => {
+        if (selectedSize.includes(clothing)) {
+            // Si la prenda ya está seleccionada, la quitamos de la selección
+            setselectedSize(selectedSize.filter(item => item !== clothing));
+        } else {
+            // Si la prenda no está seleccionada, la añadimos a la selección
+            setselectedSize([...selectedSize, clothing]);
+        }
+    }
+
 
 
 
@@ -118,7 +147,7 @@ const UploadProductsPage = () => {
                     )}
                 </div>
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Title (required): </label>
+                    <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">title (required): </label>
                     <input type="text" id="title" name='title' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
                 </div>
 
@@ -138,22 +167,83 @@ const UploadProductsPage = () => {
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="size" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Size (required): </label>
-                    <input type="text" id="size" name='size' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
+                    <label htmlFor="brand" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Brand (Marca): </label>
+                    <input type="text" id="brand" name='brand' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
                 </div>
                 <div className="mb-4 items-center border-gray-500 border p-2 w-full">
                     <label htmlFor="categorie" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Categorie (required): </label>
                     <select name='categorie' className="border w-full border-gray-300 bg-neutral-900 text-gray-400 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
-                    value={adminValue} onChange={(e)=>setAdminValue(e.target.value)}
+                        value={adminValue} onChange={(e) => setAdminValue(e.target.value)}
                     >
-                        <option value="general" >general</option>
-                        <option value="earphones" >earphones</option>
-                        <option value="phone" >phone</option>
-                        <option value="computer" >computer</option>
-                        <option value="tv" >tv</option>
-                        <option value="mac" >mac</option>
+                        <option value="unisex" >unisex</option>
+                        <option value="male" >male</option>
+                        <option value="female" >female</option>
+                        <option value="kids" >kids</option>
+                        <option value="jewelry" >jewelry</option>
+                        <option value="accessories" >accessories</option>
                     </select>
                 </div>
+
+                <section className="mb-4 border-gray-500 border p-2 w-full">
+                    <div className="mb-4 border-gray-500 border p-2 w-full">
+                        <h3>Prendas seleccionadas:</h3>
+                    </div>
+                    <div className="mb-4  border-gray-500 border  p-2 w-full">
+                        <div className="gap-2 p-2">
+                            {selectedClothing.map((item, index) => (
+                                <button
+                                    style={{ margin: '5px' }}
+                                    onClick={() => handleClothingSelection(item)}
+                                    className="p-2 rounded bg-slate-600" key={`selectedClothing${index * 5}`}>{item}</button>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4 border-gray-500 border   p-2 w-full">
+                        <div>
+                            {prendas.map((clothing, index) => (
+                                <button
+                                    key={`prendas${index * 8}`}
+                                    style={{ margin: '5px' }}
+                                    onClick={() => handleClothingSelection(clothing)}
+                                    className={selectedClothing.includes(clothing) ? 'selected' : ''}
+                                >
+                                    <p className="p-2 rounded bg-slate-700">{clothing}</p>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className="mb-4 border-gray-500 border p-2 w-full">
+                    <div className="mb-4 border-gray-500 border p-2 w-full">
+                        <h3>Prendas seleccionadas:</h3>
+                    </div>
+                    <div className="mb-4  border-gray-500 border  p-2 w-full">
+                        <div className="gap-2 p-2">
+                            {selectedSize.map((item, index) => (
+                                <button
+                                    style={{ margin: '5px' }}
+                                    onClick={() => handleSizeSelection(item)}
+                                    className="p-2 rounded bg-slate-600" key={`selectedSize${index * 2}`}>{item}</button>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4 border-gray-500 border   p-2 w-full">
+                        <div>
+                            {sizes.map((clothing, index) => (
+                                <button
+                                    key={`sizes${index * 9}`}
+                                    style={{ margin: '5px' }}
+                                    onClick={() => handleSizeSelection(clothing)}
+                                    className={selectedSize.includes(clothing) ? 'selected' : ''}
+                                >
+                                    <p className="p-2 rounded bg-slate-700">{clothing}</p>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
                     <label htmlFor="description" className="text-small-semibold block text-gray-400 font-bold mb-2">Description:</label>
@@ -162,13 +252,15 @@ const UploadProductsPage = () => {
                 <button
 
                     className="bg-blue-1 w-full hover:bg-blue-700 text-black font-bold py-2 px-4 rounded"
-                    onClick={handleUpload}
+                    onClick={handleUpload} b
                 >
                     Submit
                 </button>
             </div>
-        </main>
+        </main >
     )
 }
+
+
 
 export default UploadProductsPage

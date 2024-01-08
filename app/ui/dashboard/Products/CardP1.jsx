@@ -5,29 +5,36 @@ const CardP1 = ({ productsdata }) => {
     return (
 
         <tr className='flex justify-between max-sm:flex-col '>
-            <td className='text-center'>
-                <div className='w-16 h-16 flex object-fill '>
-                    <img src={productsdata.imgUrl} width={30} height={30} className='w-full  ' alt="" />
+            <td className='text-center  '>
+                <div className=' flex w-16 h-16  '>
+                    <img className=' flex object-contain' src={productsdata.imgUrl} width={30} height={30} alt="" />
                 </div>
             </td>
             <td className='users_products_link'>
                 {productsdata.title}
             </td>
             <td className='users_products_link'>
-                {productsdata.price}
+                ${productsdata.price}
             </td>
             <td className='users_products_link'>
                 {productsdata.stock}
             </td >
             <td className='users_products_link'>
-                {productsdata.categorie}
-            </td >
-            <td className='users_products_link'>
-                <p className='px-4 rounded-lg bg-light-3'>{productsdata.color}</p>
+                {productsdata.color}
             </td>
-            <td className='text-center flex gap-x-2'>
+            <td className='users_products_link flex gap-2'>
+                {productsdata.selectedClothing[0]}...
+            </td >
+            <td className='users_products_link flex gap-2 '>
+                {productsdata.selectedSize.map((item, i) => {
+                    return (
+                        <p key={i}>{item}</p>
+                    )
+                })}
+            </td>
+            <td className='text-center flex gap-x-2 select-none'>
                 <Link href={`/dashboard/products/view/${productsdata._id}`} className=' rounded-lg  flex justify-center items-center '>
-                    <p className='px-4 rounded-lg bg-light-4'>Inspect</p>
+                    <p className='px-4 rounded-lg border hover:bg-purple-800 text-small-semibold border-neutral-700  bg-purple-900'>Inspect</p>
                 </Link>
             </td>
         </tr>

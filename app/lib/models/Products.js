@@ -7,16 +7,15 @@ const ProductsSchema = new mongoose.Schema({
     },
     title: {
         type: String,
+        unique: false,
         required: true,
-        unique: true,
     },
     stock: {
         type: String,
         required: true,
     },
-    size: {
+    brand: {
         type: String,
-        required: false,
     },
     price: {
         type: String,
@@ -29,14 +28,20 @@ const ProductsSchema = new mongoose.Schema({
     color: {
         type: String,
     },
-    categorie: {
-        type: String,
-        required: true,
-    },
     desc: {
         type: String,
         required: true,
+    },
+    selectedClothing: {
+        type: [],
+    },
+    selectedSize: {
+        type: [],
+    },
+    sex: {
+        type: String,
     }
+
 }, { timestamps: true })
 
 const Products = mongoose.models.Products || mongoose.model("Products", ProductsSchema);

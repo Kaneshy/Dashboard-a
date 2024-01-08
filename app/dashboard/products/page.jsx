@@ -24,7 +24,7 @@ const ProductsPage = () => {
         <div className='flex justify-between'>
           <Searchbar />
           <div className='bg-purple-900 p-2 rounded-lg'>
-            <Link href='/dashboard/products/New'> Add new user </Link>
+            <Link href='/dashboard/products/New'> Add new product </Link>
           </div>
         </div>
       </div>
@@ -32,13 +32,14 @@ const ProductsPage = () => {
       <table border="1" className='w-full max-sm:w-60 flex flex-col  text-center' >
         <thead>
           <tr className='w-full flex  justify-between max-sm:hidden '>
-            <th ></th>
-            <th >Name</th>
-            <th >Price</th>
-            <th >Stock</th>
-            <th >Categorie</th>
-            <th >Color</th>
-            <th >Settings</th>
+            <th className='flex px-2'>Image</th>
+            <th className='users_products_link '  >Name</th>
+            <th className='users_products_link'  >Price</th>
+            <th className='users_products_link'  >Stock</th>
+            <th className='users_products_link'  >Color</th>
+            <th className='users_products_link'  >Categorie</th>
+            <th className='users_products_link'  >Size</th>
+            <th className=' text-center flex px-2'  >Settings</th>
           </tr>
         </thead>
         <tbody className='flex flex-col gap-4 '>
