@@ -7,7 +7,7 @@ import Link from 'next/link'
 import CardP1 from '@/app/ui/dashboard/Products/CardP1'
 import { FaArrowLeft } from "react-icons/fa";
 
-const page = () => {
+const SearchPage = () => {
 
     const SearchParams = useSearchParams()
     const search = SearchParams.get('q')
@@ -68,4 +68,4 @@ const page = () => {
     )
 }
 
-export default page
+export default SearchPage

@@ -10,7 +10,7 @@ import app from "@/firebase";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-const page = ({ params }) => {
+const ProviderPage = ({ params }) => {
     const [img, setImg] = useState(null);
     const [video, setVideo] = useState(null);
     const [imgPerc, setImgPerc] = useState(0);
@@ -194,4 +194,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default ProviderPage
