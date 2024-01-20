@@ -9,8 +9,8 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const page = () => {
 
-    const searchParams = useSearchParams()
-    const search = searchParams.get('q')
+    const SearchParams = useSearchParams()
+    const search = SearchParams.get('q')
     const [products, setproducts] = useState([])
 
     useEffect(() => {
