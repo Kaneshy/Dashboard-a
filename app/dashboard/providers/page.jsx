@@ -1,5 +1,5 @@
 'use client'
-import UserCard from '@/app/ui/dashboard/Cards/UserCard'
+import ProviderCard from '@/app/ui/dashboard/Cards/providerCard'
 import Searchbar from '@/app/ui/dashboard/navbar/Searchbar'
 import axios from 'axios'
 import Link from 'next/link'
@@ -12,38 +12,40 @@ const UsersPage = () => {
 
   useEffect(() => {
     const datausers = async () => {
-      const res = await axios.get('/api/user')
+      const res = await axios.get('/api/providers')
       setusers(res.data)
     }
     datausers()
   }, [])
 
   return (
-    <main className='p-4 b bg-blue-main rounded-xl mt-4 flex flex-col items-center'>
+    <main className='p-4 bg-blue-main rounded-xl mt-4 flex flex-col items-center'>
       <div className='py-4'>
         <div className='flex justify-between'>
           <Searchbar />
           <div className='btn-green p-2 rounded-lg'>
-            <Link href='/dashboard/users/New'> Add new user </Link>
+            <Link href='/dashboard/providers/New'> Add new user </Link>
           </div>
         </div>
       </div>
 
       <table border="1" className='w-full max-sm:w-60 flex flex-col  text-center' >
         <thead>
-          <tr className='flex mb-2 justify-between max-sm:hidden '>
+          <tr className='w-full flex px-2 mb-2 justify-between max-sm:hidden '>
             <th >Image</th>
-            <th >Name</th>
+            <th >brand</th>
             <th >Email</th>
-            <th className='max-lg:hidden'>Phone</th>
-            <th >Admin</th>
+            <th >Phone</th>
+            <th >Manager</th>
+            <th className='max-md:hidden'>Address</th>
+            <th >Action</th>
             <th >Settings</th>
           </tr>
         </thead>
-        <tbody className='flex flex-col gap-4 items-center w-full '>
+        <tbody className='flex flex-col gap-4 '>
           {users && users.map((x) => {
             return (
-              <UserCard key={x._id} usersdata={x} />
+              <ProviderCard key={x._id} usersdata={x} />
             )
           })}
 

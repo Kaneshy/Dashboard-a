@@ -1,11 +1,24 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 const UserCard = ({ usersdata }) => {
 
-    console.log('moosee', usersdata)
+    console.log('moosee', usersdata.admin)
+    const [admin, setadmin] = useState(true)
+
+    useEffect(() => {
+        if(usersdata.admin === 'true') {
+            setadmin(true)
+            console.log(true)
+        } else {
+            setadmin(false)
+        }
+    }, [])
+    
+
     return (
-        <tr className='flex justify-between max-sm:flex-col '>
+        <tr className='flex w-full justify-between max-sm:flex-col gap-y-2 border border-cyan-600 p-2 rounded-lg'>
             <td className='text-center'>
                 <div className='w-16 h-16 flex object-fill '>
                     <img src={usersdata.imgUrl} width={30} height={30} className='w-full rounded-full  ' alt="" />
@@ -17,15 +30,15 @@ const UserCard = ({ usersdata }) => {
             <td className='users_products_link'>
                 {usersdata.email}
             </td>
-            <td className='users_products_link'>
+            <td className='users_products_link max-lg:hidden'>
                 {usersdata.phone}
             </td >
             <td className='users_products_link'>
-                <p className='px-4 rounded-lg bg-light-3'>{usersdata.admin}</p>
+                <p className={`px-4 rounded-lg ${admin ? ' btn-blue ' : 'bg-red-800' } `}>{usersdata.admin}</p>
             </td>
             <td className='text-center flex gap-x-2'>
                 <Link href={`/dashboard/users/view/${usersdata._id}`} className=' rounded-lg  flex justify-center items-center '>
-                    <p className='px-4 rounded bg-light-4'>INSPECT</p>
+                    <p className='px-4 rounded btn-green'>inspect</p>
                 </Link>
             </td>
         </tr>

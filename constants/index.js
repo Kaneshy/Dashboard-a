@@ -26,7 +26,7 @@ export const leftsidebarPages = [
 export const leftsidebarAnalytics = [
     {
         route: "/dashboard/users",
-        label: "Suppliers",
+        label: "Users",
         iconReact: <AiFillAmazonCircle size={30} />
 
     },
@@ -37,8 +37,8 @@ export const leftsidebarAnalytics = [
 
     },
     {
-        route: "/transactions",
-        label: "Users",
+        route: "/dashboard/providers",
+        label: "Suppliers",
         iconReact: <FaUserFriends  size={30} />
 
     }

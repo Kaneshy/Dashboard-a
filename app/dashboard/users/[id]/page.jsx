@@ -122,7 +122,7 @@ const UploadPage = ({ params }) => {
 
     return (
         <main>
-            {preValue && (<div className="max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
+            {preValue && (<div className="max-w-xl mx-auto mt-4 p-4 bg-blue-main rounded-lg">
                 <h1 className='text-center  font-bold text-2xl text-white border-a1 pb-2 mb-6 '>Upload your video </h1>
                 <section className="w-full bg-neutral-950 rounded-2xl items-center flex justify-center mb-4">
                     <div className="w-52 h-52 flex object-fill">

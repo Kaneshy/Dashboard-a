@@ -5,7 +5,7 @@ import GoogleAuth from '../../auth/GoogleAuth'
 const Navbar = () => {
   return (
     <main className='p-4 rounded-xl flex justify-between bg-neutral-900 items-center'>
-      <section>Dashboard</section>
+      <section className=' text-cyan-600'>Dashboard</section>
       <section className='flex'> 
       {/* <GoogleAuth /> */}
         <Searchbar />

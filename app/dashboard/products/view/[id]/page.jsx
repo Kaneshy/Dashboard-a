@@ -40,13 +40,13 @@ const ViewPage = ({ params }) => {
 
 
     return (
-        <main>
+        <main className='max-w-xl mx-auto mt-4 p-4 rounded-lg bg-blue-main'>
             <div className='w-full select-none gap-x-2  mt-4 flex justify-end right-20'>
-                <Link href={`/dashboard/products/${params.id}`} className='  flex justify-center items-center '>
-                    <p className='px-6 py-2 rounded bg-neutral-800'>Edit</p>
+                <Link href={`/dashboard/products/${params.id}`} className='btn-green  flex justify-center items-center '>
+                    <p className='px-6 py-2 rounded '>Edit</p>
                 </Link>
-                <button onClick={handleDelete} className='  flex justify-center items-center '>
-                    <p className='px-6 py-2 rounded bg-neutral-800'>Delete</p>
+                <button onClick={handleDelete} className='btn-green  flex justify-center items-center '>
+                    <p className='px-6 py-2 rounded '>Delete</p>
                 </button>
             </div>
             <div>
@@ -57,7 +57,7 @@ const ViewPage = ({ params }) => {
                     </div>
                 </section>
             </div>
-            <div className="max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
+            <div className="">
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
                     <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">title (required): </label>

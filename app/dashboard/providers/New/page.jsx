@@ -83,18 +83,17 @@ const UploadPage = () => {
     const handleUpload = async (e) => {
         e.preventDefault();
         const adminB = {
-            admin: adminValue,
             action: chooseValue,
         }
         const data = {...adminB, ...inputs}
         console.log(data)
 
         try {
-            const res = await axios.post("/api/user", { ...data})
+            const res = await axios.post("/api/providers", { ...data})
             console.log('upload status', res.data)
 
             if (res.status === 200) {
-                router.push(`/dashboard/users`);
+                router.push(`/dashboard/providers`);
             }
 
         } catch (error) {
@@ -106,7 +105,7 @@ const UploadPage = () => {
 
     return (
         <main>
-            <div className="bg-blue-main max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
+            <div className="max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
                 <h1 className='text-center  font-bold text-2xl text-white border-a1 pb-2 mb-6 '>Upload </h1>
 
 
@@ -120,18 +119,13 @@ const UploadPage = () => {
                     )}
                 </div>
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="username" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Username (required): </label>
-                    <input type="text" id="username" name='username' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
+                    <label htmlFor="marca" className="text-small-semibold block text-gray-400 font-bold mb-2 ">brand (required): </label>
+                    <input type="text" id="brand" name='brand' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
                     <label htmlFor="email" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Email (required): </label>
                     <input type="email" id="email" name='email' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
-                </div>
-
-                <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="password" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Password (required): </label>
-                    <input type="password" id="password" name='password' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
@@ -143,14 +137,15 @@ const UploadPage = () => {
                     <label htmlFor="address" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Address (required): </label>
                     <input type="text" id="address" name='address' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
                 </div>
-                <div className="mb-4 items-center border-gray-500 border p-2 w-full">
-                    <label htmlFor="admin" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Admin (required): </label>
-                    <select name='admin' className="border w-full border-gray-300 bg-neutral-900 text-gray-400 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
-                    value={adminValue} onChange={(e)=>setAdminValue(e.target.value)}
-                    >
-                        <option value="true" >true</option>
-                        <option value="false" >false</option>
-                    </select>
+
+                <div className="mb-4 border-gray-500 border   p-2 w-full">
+                    <label htmlFor="manager" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Manager (required): </label>
+                    <input type="text" id="manager" name='manager' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
+                </div>
+
+                <div className="mb-4 border-gray-500 border   p-2 w-full">
+                    <label htmlFor="website" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Website: </label>
+                    <input type="text" id="website" name='website' onChange={handleChange} className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" />
                 </div>
 
                 <div className="mb-4 items-center border-gray-500 border p-2 w-full">

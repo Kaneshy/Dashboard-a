@@ -11,7 +11,7 @@ const ViewProductPage = ({ params }) => {
 
     useEffect(() => {
         const updateduser = async () => {
-            const resUp = await axios.get(`/api/user/${params.id}`)
+            const resUp = await axios.get(`/api/providers/${params.id}`)
             if (resUp.status === 200) {
                 setPreValue(resUp.data)
             }
@@ -23,10 +23,10 @@ const ViewProductPage = ({ params }) => {
 
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`/api/user/${params.id}`)
+            const res = await axios.delete(`/api/providers/${params.id}`)
             console.log(res)
             if(res.status == 200){
-                router.push('/dashboard/users')
+                router.push('/dashboard/providers')
             }
         } catch (error) {
             console.log(error.message, error.status)
@@ -35,9 +35,9 @@ const ViewProductPage = ({ params }) => {
 
 
     return (
-        <main className='bg-blue-main max-w-xl mx-auto mt-4 p-4 bg-blue-main rounded-lg'>
+        <main className='max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg bg-blue-main'>
             <div className='w-full select-none gap-x-2  mt-4 flex justify-end right-20'>
-                <Link href={`/dashboard/users/${params.id}`} className='  flex justify-center items-center '>
+                <Link href={`/dashboard/providers/${params.id}`} className='  flex justify-center items-center '>
                     <p className='px-6 py-2 rounded btn-green'>Edit</p>
                 </Link>
                 <button onClick={handleDelete} className='  flex justify-center items-center '>
@@ -55,8 +55,8 @@ const ViewProductPage = ({ params }) => {
             <div className="">
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Username: </label>
-                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.username}</p>
+                    <label htmlFor="title" className="text-small-semibold block text-gray-400 font-bold mb-2 ">brand: </label>
+                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.brand}</p>
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
@@ -75,8 +75,14 @@ const ViewProductPage = ({ params }) => {
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">
-                    <label htmlFor="size" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Role (is admin?) </label>
-                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.admin}</p>
+                    <label htmlFor="manager" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Manager (required): </label>
+                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.manager}</p>
+                </div>
+
+
+                <div className="mb-4 border-gray-500 border   p-2 w-full">
+                    <label htmlFor="size" className="text-small-semibold block text-gray-400 font-bold mb-2 ">Action (is admin?) </label>
+                    <p className="border-neutral-500 border  bg-neutral-900 p-2 w-full text-white" >{preValue.website}</p>
                 </div>
 
                 <div className="mb-4 border-gray-500 border   p-2 w-full">

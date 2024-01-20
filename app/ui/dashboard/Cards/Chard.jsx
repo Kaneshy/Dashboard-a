@@ -7,7 +7,7 @@ const Chard = () => {
     console.log(data)
 
     return (
-        <main className='rounded-xl hover:bg-neutral-800 p-4 mt-4 h-80'>
+        <main className='rounded-xl hover:bg-cyan-900 p-4 mt-4 h-80'>
             <ResponsiveContainer width="100%" height="100%">
                 <LineChart
                     width={500}

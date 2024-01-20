@@ -32,6 +32,14 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.bg-blue-main {
+  background-color: #001a25;
+}
+
+.bg-hover-main {
+  background-color: #01354b;
+}
+
 @layer utilities {
   .css-invert {
     @apply invert-[50%] brightness-200;
@@ -59,7 +67,7 @@ body {
 
 @layer components {
   .leftsidebar {
-    @apply sticky left-0 top-0 pt-2 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-dark-4 bg-neutral-900  ;
+    @apply sticky  min-w-28 left-0 top-0 pt-2 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-dark-4 bg-neutral-900  ;
   }
 
   .leftsidebar_link {
@@ -81,6 +89,15 @@ body {
   .users_products_link {
     @apply text-center w-full items-center justify-center flex overflow-hidden max-sm:justify-start ;
   }
+
+  .btn-green {
+    @apply bg-green-800 border border-green-400 hover:bg-green-600 rounded-lg 
+  }
+
+  .btn-blue {
+    @apply bg-sky-900 border border-sky-400 rounded-lg 
+  }
+
 
 }
 

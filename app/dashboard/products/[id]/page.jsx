@@ -150,7 +150,7 @@ const UploadProductsPage = ({params}) => {
 
     return (
         <main>
-            <div className="max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
+            <div className="max-w-xl mx-auto mt-4 p-4 bg-blue-main rounded-lg">
                 <h1 className='text-center  font-bold text-2xl text-white border-a1 pb-2 mb-6 '>Upload your video </h1>
                 <section className="w-full bg-neutral-950 rounded-2xl items-center flex justify-center mb-4">
                     <div className="h-96 flex ">

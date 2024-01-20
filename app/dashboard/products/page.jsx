@@ -4,6 +4,7 @@ import CardP1 from '@/app/ui/dashboard/Products/CardP1'
 import axios from 'axios'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { IoSearchOutline } from 'react-icons/io5'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const ProductsPage = () => {
@@ -57,15 +58,19 @@ const ProductsPage = () => {
         </main>
 
       }>
-      <main className='p-4 bg-neutral-900 rounded-xl mt-4'>
+      <main className='p-4 bg-blue-main rounded-xl mt-4 flex flex-col max-md:items-center'>
         <div className='py-4'>
           <div className='flex justify-between'>
-            <button onClick={() => setsearchactive(!searchactive)}>Search</button>
+            <button
+              onClick={() => setsearchactive(!searchactive)}
+              className=" bg-gray-600 hover:bg-gray-300 text-gray-200 px-2 py-2  rounded-full">
+              <IoSearchOutline size={24} />
+            </button>
             {searchactive && (
               <Searchbar routeType='search' />
             )
             }
-            <div className='bg-purple-900 p-2 rounded-lg'>
+            <div className='btn-green p-2 rounded-lg'>
               <Link href='/dashboard/products/New'> Add new product </Link>
             </div>
           </div>
@@ -73,12 +78,12 @@ const ProductsPage = () => {
 
         <table border="1" className='w-full max-sm:w-60 flex flex-col  text-center' >
           <thead>
-            <tr className='w-full flex  justify-between max-sm:hidden '>
+            <tr className='w-full mb-2 flex  justify-between max-sm:hidden '>
               <th className='flex px-2'>Image</th>
               <th className='users_products_link '  >Name</th>
               <th className='users_products_link'  >Price</th>
               <th className='users_products_link'  >Stock</th>
-              <th className='users_products_link'  >Color</th>
+              <th className='users_products_link max-lg:hidden'  >Color</th>
               <th className='users_products_link'  >Categorie</th>
               <th className='users_products_link'  >Size</th>
               <th className=' text-center flex px-2'  >Settings</th>

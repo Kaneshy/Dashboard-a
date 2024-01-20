@@ -4,7 +4,7 @@ import React from 'react'
 const CardP1 = ({ productsdata }) => {
     return (
 
-        <tr className='flex justify-between max-sm:flex-col '>
+        <tr className='flex justify-between max-sm:flex-col border border-cyan-600 py-1 px-2 rounded-lg '>
             <td className='text-center  '>
                 <div className=' flex w-16 h-16  '>
                     <img className=' flex object-contain' src={productsdata.imgUrl} width={30} height={30} alt="" />
@@ -16,10 +16,11 @@ const CardP1 = ({ productsdata }) => {
             <td className='users_products_link'>
                 ${productsdata.price}
             </td>
-            <td className='users_products_link'>
-                {productsdata.stock}
+            <td className={`users_products_link`}>
+                <div className={`px-2  rounded-lg ${(productsdata.stock == 0) ? 'bg-red-800 border border-red-400' : ''}`}>{productsdata.stock}</div>
+                
             </td >
-            <td className='users_products_link'>
+            <td className='users_products_link max-lg:hidden'>
                 {productsdata.color}
             </td>
             <td className='users_products_link flex gap-2'>
@@ -34,7 +35,7 @@ const CardP1 = ({ productsdata }) => {
             </td>
             <td className='text-center flex gap-x-2 select-none'>
                 <Link href={`/dashboard/products/view/${productsdata._id}`} className=' rounded-lg  flex justify-center items-center '>
-                    <p className='px-4 rounded-lg border hover:bg-purple-800 text-small-semibold border-neutral-700  bg-purple-900'>Inspect</p>
+                    <p className='px-4 rounded-lg border btn-green text-small-semibold   '>Inspect</p>
                 </Link>
             </td>
         </tr>

@@ -1,17 +1,17 @@
-import React from 'react'
 
-const Card1 = () => {
+const Card1 =  ({valuesH, titleH}) => {
+
   return (
-    <main className='p-4 flex rounded-xl bg-neutral-900'>
+    <main className='p-4 flex rounded-xl bg-blue-main'>
         <section>
             <img src="" alt="" />
         </section>
         <section className='flex flex-col'>
-            <p>Total Users</p>
-            <p>10.273</p>
+            <p>{titleH}</p>
+            <p>{valuesH}</p>
             <div className='flex gap-x-2'>
                 <p className=' text-green-600'>12% </p>
-                <p>more thatprevius weeks</p>
+                <p>sectionghd</p>
             </div>
         </section>
     </main>
