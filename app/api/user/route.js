@@ -7,7 +7,6 @@ import { revalidatePath } from "next/cache";
 
 export async function POST(req, res) {
     const body = await req.json();
-    console.log('api/tarjet', body)
     connectToDB();
    
     try {
@@ -18,7 +17,6 @@ export async function POST(req, res) {
 
         const savedUser = await newUser.save();
         revalidatePath("/dashboard/users")
-        console.log('hhh', savedUser)
 
     } catch (err) {
         console.log(err.message)
@@ -30,7 +28,6 @@ export async function POST(req, res) {
 export async function GET(req, res) {
     connectToDB();
     try {
-        console.log('runinng get')
         const users = await Users.find();
         return NextResponse.json(users)
     } catch (err) {

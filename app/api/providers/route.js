@@ -6,7 +6,6 @@ import Providers from "@/app/lib/models/Providers";
 
 export async function POST(req, res) {
     const body = await req.json();
-    console.log('api/tarjet', body)
     connectToDB();
    
     try {
@@ -14,7 +13,6 @@ export async function POST(req, res) {
 
         const savedUser = await newUser.save();
         revalidatePath("/dashboard/providers")
-        console.log('hhh', savedUser)
 
     } catch (err) {
         console.log(err.message)

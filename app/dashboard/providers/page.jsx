@@ -1,5 +1,7 @@
 'use client'
+import Topbar from '@/app/ui/Shared/Topbar'
 import ProviderCard from '@/app/ui/dashboard/Cards/providerCard'
+import CardP1 from '@/app/ui/dashboard/Products/CardP1'
 import Searchbar from '@/app/ui/dashboard/navbar/Searchbar'
 import axios from 'axios'
 import Link from 'next/link'
@@ -20,37 +22,12 @@ const UsersPage = () => {
 
   return (
     <main className='p-4 bg-blue-main rounded-xl mt-4 flex flex-col items-center'>
-      <div className='py-4'>
-        <div className='flex justify-between'>
-          <Searchbar />
-          <div className='btn-green p-2 rounded-lg'>
-            <Link href='/dashboard/providers/New'> Add new user </Link>
-          </div>
-        </div>
-      </div>
 
-      <table border="1" className='w-full max-sm:w-60 flex flex-col  text-center' >
-        <thead>
-          <tr className='w-full flex px-2 mb-2 justify-between max-sm:hidden '>
-            <th >Image</th>
-            <th >brand</th>
-            <th >Email</th>
-            <th >Phone</th>
-            <th >Manager</th>
-            <th className='max-md:hidden'>Address</th>
-            <th >Action</th>
-            <th >Settings</th>
-          </tr>
-        </thead>
-        <tbody className='flex flex-col gap-4 '>
-          {users && users.map((x) => {
-            return (
-              <ProviderCard key={x._id} usersdata={x} />
-            )
-          })}
+      <Topbar value={'providers'}/>
 
-        </tbody>
-      </table>
+      <section border="1" className='w-full max-sm:w-60 flex flex-col  text-center' >
+          <CardP1 productsdata={users} param={'providers'} />
+      </section>
     </main>
   )
 }

@@ -6,12 +6,10 @@ import axios from 'axios';
 
 export async function POST(req, res) {
     const body = await req.json();
-    console.log('api/product', body)
     connectToDB();
     const newProduct = new Products({ ...body });
     try {
         const savedProduct = await newProduct.save();
-        console.log('hhh', savedProduct)
         return NextResponse.json(savedProduct)
 
     } catch (err) {
@@ -35,7 +33,6 @@ export async function POST(req, res) {
 
 export async function GET(req, { params }) {
     connectToDB();
-    console.log('is runing')
     const page = Number(req.url.split('?page=')[1])
     // const searchParams = new URLSearchParams(req.url);
     const pageSize = 12

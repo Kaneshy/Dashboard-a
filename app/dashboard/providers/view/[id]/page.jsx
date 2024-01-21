@@ -41,7 +41,7 @@ const ViewProductPage = ({ params }) => {
                     <p className='px-6 py-2 rounded btn-green'>Edit</p>
                 </Link>
                 <button onClick={handleDelete} className='  flex justify-center items-center '>
-                    <p className='px-6 py-2 rounded btn-green'>Delete</p>
+                    <p className='px-6 py-2 rounded btn-red'>Delete</p>
                 </button>
             </div>
             <div>

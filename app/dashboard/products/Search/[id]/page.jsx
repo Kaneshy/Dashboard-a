@@ -7,7 +7,7 @@ import Link from 'next/link'
 import CardP1 from '@/app/ui/dashboard/Products/CardP1'
 import { FaArrowLeft } from "react-icons/fa";
 
-const SearchPage = () => {
+const SearchPage = ({params}) => {
 
     const SearchParams = useSearchParams()
     const search = SearchParams.get('q')
@@ -15,7 +15,7 @@ const SearchPage = () => {
 
     useEffect(() => {
         const handlesearch = async () => {
-            const res = await axios.get(`/api/product/Search?q=${search}`)
+            const res = await axios.get(`/api/product/Search/${params.id}?q=${search}`)
             setproducts(res.data)
         }
         handlesearch()
@@ -31,7 +31,7 @@ const SearchPage = () => {
                         <div className='flex justify-between select-none'>
                             <Link
                                 href={'/dashboard/products'}
-                                className=" bg-gray-600 hover:bg-gray-300 text-gray-200 px-2 py-2  rounded-full">
+                                className=" bg-red text-black px-2 py-2  rounded-full">
                                 <FaArrowLeft size={24} />
                             </Link>
                             <Searchbar routeType='search' />

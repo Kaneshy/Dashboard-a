@@ -1,30 +1,37 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
 
 
-function Searchbar({ routeType }) {
+
+function  Searchbar({paramsB}) {
   const router = useRouter();
   const [search, setSearch] = useState("");
+  console.log('nnnnn', paramsB)
+  const Params = usePathname()
+  const test = Params.split('/')[2]
+  console.log('dddddd', test)
 
   // query after 0.3s of no input
   useEffect(() => {
+    console.log('dgd', paramsB)
     const delayDebounceFn = setTimeout(() => {
-      if (search) {
-        router.push(`/dashboard/products/Search?q=` + search);
+      if(search) {
+        router.push(`/dashboard/products/Search/${test}?q=` + search);
       } else {
-        router.push(`/dashboard/products/Search`);
+        router.push(`/dashboard/products/Search/${test}` + search);
       }
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [search, routeType]);
+  }, [search]);
+ 
 
   return (
 
-      <div className="flex items-center w-2/3 max-w-xl ml-4 px-4  ">
+      <div className="flex w-full items-center ml-4 px-4  ">
         <div className="flex w-full ">
           <input
             type="text"

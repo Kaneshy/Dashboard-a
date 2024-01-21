@@ -133,9 +133,8 @@ const UploadProductsPage = () => {
 
     return (
         <main>
-            <div className="max-w-xl mx-auto mt-4 p-4 bg-neutral-900 rounded-lg">
+            <div className="max-w-xl mx-auto mt-4 p-4 bg-blue-main rounded-lg">
                 <h1 className='text-center  font-bold text-2xl text-white border-a1 pb-2 mb-6 '>Upload your video </h1>
-
 
                 <div className="mb-4">
                     <label htmlFor="thumbnail" className=" text-gray-400 justify-around gap-x-2 font-bold mb-2 flex  ">

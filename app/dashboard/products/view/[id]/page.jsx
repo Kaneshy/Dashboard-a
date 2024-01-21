@@ -45,7 +45,7 @@ const ViewPage = ({ params }) => {
                 <Link href={`/dashboard/products/${params.id}`} className='btn-green  flex justify-center items-center '>
                     <p className='px-6 py-2 rounded '>Edit</p>
                 </Link>
-                <button onClick={handleDelete} className='btn-green  flex justify-center items-center '>
+                <button onClick={handleDelete} className='btn-red  flex justify-center items-center '>
                     <p className='px-6 py-2 rounded '>Delete</p>
                 </button>
             </div>
