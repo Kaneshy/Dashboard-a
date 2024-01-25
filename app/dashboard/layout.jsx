@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }) {
     return (
         <main className="flex flex-row">
             <Sidebar />
-            <div className="w-full p-4">
+            <div className="w-full p-2">
                 <Navbar />
                 {children}
             </div>

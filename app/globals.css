@@ -36,6 +36,10 @@ body {
   background-color: #001a25;
 }
 
+.bg-blue-b {
+  background-color: #00090e;
+}
+
 .bg-hover-main {
   background-color: #01354b;
 }
@@ -67,7 +71,7 @@ body {
 
 @layer components {
   .leftsidebar {
-    @apply sticky  min-w-28 left-0 top-0 pt-2 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-dark-4 bg-neutral-900  ;
+    @apply sticky  min-w-24 left-0 top-0 pt-2 z-20 flex h-screen w-fit flex-col justify-between overflow-auto  bg-blue-b  ;
   }
 
   .leftsidebar_link {
@@ -110,7 +114,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 0 auto;
-  gap: 20px;
+  gap: 0.5rem;
 }
 
 .grid-sv {

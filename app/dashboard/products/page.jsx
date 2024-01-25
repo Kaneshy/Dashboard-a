@@ -42,12 +42,12 @@ const ProductsPage = () => {
       next={fetchProducts}
       hasMore={hasMore}
       loader={
-        <main className='p-4 bg-neutral-900 rounded-xl mt-4'>
-          <p className='w-full text-center text-small-regular text-neutral-600'>Loading please wait</p>
+        <main className='p-4  rounded-xl mt-4'>
+          <p className='w-full text-center text-small-regular text-sky-900'>Loading please wait</p>
         </main>
 
       }>
-      <main className='p-4 bg-blue-main rounded-xl mt-4 flex flex-col max-md:items-center'>
+      <main className='p-4 bg-blue-main mt-2 flex flex-col max-md:items-center'>
 
         <Topbar value={'products'} />
 

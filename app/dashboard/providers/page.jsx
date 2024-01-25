@@ -21,7 +21,7 @@ const UsersPage = () => {
   }, [])
 
   return (
-    <main className='p-4 bg-blue-main rounded-xl mt-4 flex flex-col items-center'>
+    <main className='p-4 bg-blue-main mt-2 flex flex-col items-center'>
 
       <Topbar value={'providers'}/>
 

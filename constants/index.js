@@ -14,12 +14,12 @@ export const leftsidebarPages = [
     {
         route: "/dashboard",
         label: "Dashboard",
-        iconReact: <MdDashboardCustomize size={30} />
+        iconReact: <MdDashboardCustomize size={24} />
     },
     {
         route: "/dashboard/Analytics",
         label: "Analytics",
-        iconReact: <IoAnalyticsSharp size={30} />
+        iconReact: <IoAnalyticsSharp size={24} />
     }
 ]
 
@@ -27,19 +27,19 @@ export const leftsidebarAnalytics = [
     {
         route: "/dashboard/users",
         label: "Users",
-        iconReact: <AiFillAmazonCircle size={30} />
+        iconReact: <AiFillAmazonCircle size={24} />
 
     },
     {
         route: "/dashboard/products",
         label: "Products",
-        iconReact: <LuShoppingBag   size={30} />
+        iconReact: <LuShoppingBag   size={24} />
 
     },
     {
         route: "/dashboard/providers",
         label: "Suppliers",
-        iconReact: <FaUserFriends  size={30} />
+        iconReact: <FaUserFriends  size={24} />
 
     }
 ]
@@ -48,13 +48,13 @@ export const leftsidebarUser = [
     {
         route: "/settings",
         label: "API",
-        iconReact: <FaNodeJs  size={30} />
+        iconReact: <FaNodeJs  size={24} />
 
     },
     {
         route: "/Help",
         label: "Help",
-        iconReact: <IoMdHelpCircleOutline  size={30} />
+        iconReact: <IoMdHelpCircleOutline  size={24} />
 
     }
 ]

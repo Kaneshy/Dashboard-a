@@ -14,10 +14,10 @@ const CardP1 = ({ productsdata, param }) => {
             settest(['Image', 'Name', 'Price', 'Stock', 'Color', 'Categoria', 'Size', 'Settings'])
             setfirst(productsdata)
         } else if (param === 'users') {
-            settest(['Image', 'Brand', 'Email', 'Phone', 'Manager', 'Address', 'Action', 'Settings'])
+            settest(['Image', 'Name', 'Email', 'Phone', 'Admin', 'Settings'])
             setsecond(productsdata)
         } else if (param === 'providers') {
-            settest(['Image', 'Name', 'Email', 'Phone', 'Admin', 'Settings'])
+            settest(['Image', 'Brand', 'Email', 'Phone', 'Manager', 'Address', 'Action', 'Settings'])
             setfthirth(productsdata)
         } else return;
     }, [productsdata])
@@ -27,10 +27,10 @@ const CardP1 = ({ productsdata, param }) => {
     return (
         <main>
             <section>
-                <div className='w-full mb-2 flex  justify-between max-sm:hidden '>
+                <div className='w-full text-sky-300 mb-2 flex  justify-between max-sm:hidden '>
                     {test && test.map((section, index) => {
                         return (
-                            <p key={`test`+index} className='users_products_link'>{section}</p>
+                            <p key={`test` + index} className='users_products_link'>{section}</p>
                         )
                     })}
                 </div>
@@ -40,7 +40,7 @@ const CardP1 = ({ productsdata, param }) => {
                 <section className='flex flex-col gap-4 '>
                     {first.map((product, index) => {
                         return (
-                            <div key={`first`+ index}  className='flex justify-between max-sm:flex-col border border-cyan-600 py-1 px-2 rounded-lg '>
+                            <div key={`first` + index} className='flex justify-between max-sm:flex-col border border-cyan-600 py-1 px-2 rounded-lg '>
                                 <div className='text-center  '>
                                     <div className=' flex w-16 h-16  '>
                                         <img className=' flex object-contain' src={product.imgUrl} width={30} height={30} alt="" />
@@ -52,6 +52,7 @@ const CardP1 = ({ productsdata, param }) => {
                                 <div className='users_products_link'>
                                     ${product.price}
                                 </div>
+
                                 <div className={`users_products_link`}>
                                     <div className={`px-2  rounded-lg ${(product.stock == 0) ? 'bg-red-800 border border-red-400' : ''}`}>{product.stock}</div>
 
@@ -84,7 +85,7 @@ const CardP1 = ({ productsdata, param }) => {
                 <section className='flex flex-col gap-4 '>
                     {second.map((usersdata, index) => {
                         return (
-                            <section  key={`second`+ index} className='flex w-full justify-between max-sm:flex-col gap-y-2 border border-cyan-600 p-2 rounded-lg'>
+                            <section key={`second` + index} className='flex w-full justify-between max-sm:flex-col gap-y-2 border border-cyan-600 p-2 rounded-lg'>
                                 <div className='text-center'>
                                     <div className='w-16 h-16 flex object-fill '>
                                         <img src={usersdata.imgUrl} width={30} height={30} className='w-full rounded-full  ' alt="" />
@@ -117,7 +118,7 @@ const CardP1 = ({ productsdata, param }) => {
                 <section className='flex flex-col gap-4 '>
                     {thirth.map((usersdata, index) => {
                         return (
-                            <section  key={`thirth`+ index}  className='flex justify-between max-sm:flex-col border border-cyan-600 p-2 rounded-lg '>
+                            <section key={`thirth` + index} className='flex justify-between max-sm:flex-col border border-cyan-600 p-2 rounded-lg '>
                                 <div className='text-center'>
                                     <div className='w-16 h-16 flex object-fill '>
                                         <img src={usersdata.imgUrl} width={30} height={30} className='w-full rounded-full  ' alt="" />

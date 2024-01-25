@@ -19,13 +19,13 @@ const DashboardPage = () => {
 
   return (
     <main className=''>
-      <div className='home-sv-a pt-4'>
+      <div className='home-sv-a pt-2'>
         <Card1 valuesH={valuesH.totalValue} titleH={'Total Price Stock'} />
         <Card1 valuesH={valuesH.lengthValue} titleH={'Total Stock'} />
         <Card1 valuesH={valuesH.totalValue} titleH={'Total Iva Stock'} />
         <Card1 valuesH={valuesH.lengthValue} titleH={'Total Taxes Stock'} />
       </div>
-      <section className='p-4 bg-blue-main rounded-xl mt-4'>
+      <section className='p-4 bg-blue-main  mt-2'>
         <div className='py-4'>
           <h1>Latest Transactions</h1>
         </div>
@@ -41,7 +41,7 @@ const DashboardPage = () => {
         <Card2 />
         <Card2 />
       </section>
-      <section className='p-4 bg-blue-main rounded-xl mt-4'>
+      <section className='p-4 bg-blue-main  mt-2'>
         <Chard />
       </section>
 

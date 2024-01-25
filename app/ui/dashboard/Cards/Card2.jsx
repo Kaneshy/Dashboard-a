@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card2 = () => {
     return (
-        <main className='rounded-xl  hover:bg-cyan-900 p-4 mt-4'>
+        <main className=' hover:bg-cyan-900 p-4 mt-4'>
             <section className='flex justify-between max-lg:flex-col'>
                 <div className='flex'>
                     <img src="" alt="" />

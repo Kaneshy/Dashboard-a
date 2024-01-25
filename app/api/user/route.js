@@ -6,7 +6,9 @@ import { revalidatePath } from "next/cache";
 
 
 export async function POST(req, res) {
+
     const body = await req.json();
+    console.log(body,'dfdfo')
     connectToDB();
    
     try {

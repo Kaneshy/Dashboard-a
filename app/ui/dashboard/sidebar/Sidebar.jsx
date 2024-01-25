@@ -1,16 +1,12 @@
 'use client'
 import { leftsidebarPages, leftsidebarAnalytics, leftsidebarUser } from '@/constants/index.js'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { signOut, useSession } from 'next-auth/react'
-import { useState } from 'react'
 
 
 const Sidebar = () => {
 
   const pathname = usePathname()
-  const [signOutBar, setsignOutBar] = useState(false)
 
   return (
     <section className="custom-scrollbar leftsidebar  ">
@@ -25,7 +21,7 @@ const Sidebar = () => {
               key={`${link.label}leftsidebarPages`}
               className={`leftsidebar_link ${isActive && 'bg-green-900 border-l-2 border-green-400 hover:bg-green-600'}`}
             >
-              <div className='w-16 flex'>{link.iconReact}</div>
+              <div className='w-16 flex justify-center'>{link.iconReact}</div>
               <p className={`text-light-1 max-lg:hidden px-4 `}>{link.label}</p>
             </Link>
           )
@@ -41,7 +37,7 @@ const Sidebar = () => {
               key={`${link.label}${i}`}
               className={`leftsidebar_link ${isActive && 'bg-green-900 border-l-2 border-green-400 hover:bg-green-600'}`}
             >
-              <div className='w-16 flex'>{link.iconReact}</div>
+              <div className='w-16 flex justify-center'>{link.iconReact}</div>
               <p className={`text-light-1 max-lg:hidden px-4 `}>{link.label}</p>
             </Link>
           )
@@ -59,7 +55,7 @@ const Sidebar = () => {
               key={`${link.label}leftsidebarUser`}
               className={`leftsidebar_link  ${isActive && 'bg-green-900 border-l-2 border-green-400 hover:bg-green-600'}`}
             >
-              <div className='w-16 flex'>{link.iconReact}</div>
+              <div className='w-16 flex justify-center'>{link.iconReact}</div>
               <p className={`text-light-1 max-lg:hidden px-4 `}>{link.label}</p>
             </Link>
           )

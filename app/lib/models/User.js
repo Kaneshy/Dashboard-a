@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const UsersSchema = new mongoose.Schema({
     imgUrl: {
         type: String,
-        required: true,
     },
     username: {
         type: String,
@@ -17,27 +16,21 @@ const UsersSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: false,
     },
     phone: {
         type: String,
-        required: true,
     },
     address: {
         type: String,
-        required: true,
     },
     admin: {
         type: String,
-        required: true,
     },
     action: {
         type: String,
-        required: true,
     },
     desc: {
         type: String,
-        required: true,
     }
 }, { timestamps: true })
 

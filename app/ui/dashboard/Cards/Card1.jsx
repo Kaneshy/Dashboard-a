@@ -2,7 +2,7 @@
 const Card1 =  ({valuesH, titleH}) => {
 
   return (
-    <main className='p-4 flex rounded-xl bg-blue-main'>
+    <main className='p-4 flex  bg-blue-main'>
         <section>
             <img src="" alt="" />
         </section>
