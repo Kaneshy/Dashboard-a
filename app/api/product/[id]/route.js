@@ -1,5 +1,4 @@
 import Products from "@/app/lib/models/Products";
-import Users from "@/app/lib/models/User";
 import { connectToDB } from "@/app/lib/mongoose"
 import { NextResponse } from "next/server"
 
