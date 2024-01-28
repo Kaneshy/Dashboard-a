@@ -1,11 +1,16 @@
 'use client'
+import CodeJ from '@/app/ui/Docs/CodeJ';
+import { codeLinks } from '@/constants/docs';
 import { useRef, useState } from 'react'
 
-const page = () => {
+
+const DocsPage = () => {
     const [copyButton, setcopyButton] = useState(false)
     const textRef = useRef(null);
 
-    const handleCopy = async () => {
+    const handleCopy = async (e) => {
+        const test = document.getElementById(e).textContent
+        console.log('df', test)
         // Seleccionar el texto del elemento <p>
         const text = textRef.current.textContent;
         // Copiar el texto al portapapeles
@@ -24,21 +29,15 @@ const page = () => {
     return (
         <main className='p-6 flex flex-col gap-y-4'>
             <h1 className='text-heading1-bold'>Inventory</h1>
-            <section className='flex flex-col gap-y-4'>
-                <p >Total inventory value: </p>
 
-                <div onMouseEnter={() => setcopyButton(true)} onMouseLeave={() => setcopyButton(false)}
-                    className='bg-black p-4 rounded-lg flex gap-x-8'>
-                    <pre>
-                        <code className='flex gap-x-4'>
-                            GET: <p ref={textRef}>http://localhost3000/api/product/[id]</p>
-                        </code>
-                    </pre>
-                    <button className={`${copyButton ? ' block' : 'hidden'}`} onClick={handleCopy}>copy icon</button>
-                </div>
-            </section>
+            {codeLinks.map((x, index) => {
+                return (
+                   <CodeJ value={x} indexh={index} key={index}/>
+                )
+            })}
+
         </main>
     )
 }
 
-export default page
+export default DocsPage

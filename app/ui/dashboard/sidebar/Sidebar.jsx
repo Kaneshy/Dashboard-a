@@ -51,7 +51,7 @@ const Sidebar = () => {
 
           return (
             <Link
-              href={`${link.route}/${link.label}`}
+              href={`${link.route}`}
               key={`${link.label}leftsidebarUser`}
               className={`leftsidebar_link  ${isActive && 'bg-green-900 border-l-2 border-green-400 hover:bg-green-600'}`}
             >

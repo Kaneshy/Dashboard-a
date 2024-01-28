@@ -46,7 +46,7 @@ export const leftsidebarAnalytics = [
 
 export const leftsidebarUser = [
     {
-        route: "/settings",
+        route: "/documentation/introduction",
         label: "API",
         iconReact: <FaNodeJs  size={24} />
 

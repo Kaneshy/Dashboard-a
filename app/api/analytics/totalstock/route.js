@@ -1,6 +1,5 @@
 import { connectToDB } from "@/app/lib/mongoose"
 import { NextResponse } from "next/server"
-import { revalidatePath } from "next/cache";
 import Products from "@/app/lib/models/Products";
 
 

@@ -26,3 +26,22 @@ export const pagesDocs = [
         ]
     }
 ]
+
+export const codeLinks = [
+    {
+        title:'Total stock',
+        method:'GET',
+        link:'http://localhost3000/api/product/[id]'
+    },
+    {
+        title:'Total inventory value',
+        method:'GET',
+        link:'http://localhost3000/api/value'
+    },
+    {
+        title:'Total inventary value',
+        method:'POST',
+        link:'http://localhost3000/api/inventory'
+    },
+    
+]
