@@ -18,10 +18,18 @@ const SearchPage = ({ params }) => {
         setproducts(res.data)
     }
 
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            handlesearch()
+        }, 1000);
+        return () => clearTimeout(timerId);
+    }, [searchq])
+    
+
     return (
         <>
 
-            <main className='p-4 bg-blue-main rounded-xl mt-4'>
+            <main className='p-4 bg-blue-main  mt-2'>
                 <div className='py-4'>
                     <div className='flex justify-between'>
                         <div className='flex select-none'>
@@ -42,7 +50,7 @@ const SearchPage = ({ params }) => {
                                         onChange={(e) => setSearchq(e.target.value)}
                                         className="border w-full border-gray-600 bg-neutral-900 rounded-full px-4 py-2 focus:outline-none focus:ring focus:border-blue-500  "
                                     />
-                                    <button onClick={handlesearch} className='btn-green px-4'>search</button>
+                                    {/* <button onClick={handlesearch} className='btn-green px-4'>search</button> */}
                                 </div>
                             </div>
                         </div>

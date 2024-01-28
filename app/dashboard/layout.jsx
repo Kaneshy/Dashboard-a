@@ -1,3 +1,4 @@
+import Bottombar from "../ui/dashboard/navbar/Bottonbar"
 import Navbar from "../ui/dashboard/navbar/Navbar"
 import Sidebar from "../ui/dashboard/sidebar/Sidebar"
 
@@ -14,6 +15,7 @@ export default function DashboardLayout({ children }) {
             <div className="w-full p-2">
                 <Navbar />
                 {children}
+                <Bottombar/>
             </div>
 
         </main>
