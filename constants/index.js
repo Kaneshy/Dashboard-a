@@ -46,13 +46,13 @@ export const leftsidebarAnalytics = [
 
 export const leftsidebarUser = [
     {
-        route: "/documentation/introduction",
+        route: "/documentation/products",
         label: "API",
         iconReact: <FaNodeJs  size={24} />
 
     },
     {
-        route: "/Help",
+        route: "/documentation/products",
         label: "Help",
         iconReact: <IoMdHelpCircleOutline  size={24} />
 
