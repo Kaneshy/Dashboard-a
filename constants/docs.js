@@ -65,21 +65,21 @@ export const products = [
         method:'GET',
         link:'https://dashboard-a.vercel.app/api/product/[id]',
     },
-    {
-        title:'DELETE by id',
-        method:'DELETE',
-        link:'https://dashboard-a.vercel.app/api/product/[id]',
-    },
-    {
-        title:'PUT by Id',
-        method:'PUT',
-        link:'https://dashboard-a.vercel.app/api/product/[id]',
-    },
-    {
-        title:'POST a new product',
-        method:'GET',
-        link:'https://dashboard-a.vercel.app/api/product',
-    },
+    // {
+    //     title:'DELETE by id',
+    //     method:'DELETE',
+    //     link:'https://dashboard-a.vercel.app/api/product/[id]',
+    // },
+    // {
+    //     title:'PUT by Id',
+    //     method:'PUT',
+    //     link:'https://dashboard-a.vercel.app/api/product/[id]',
+    // },
+    // {
+    //     title:'POST a new product',
+    //     method:'GET',
+    //     link:'https://dashboard-a.vercel.app/api/product',
+    // },
     {
         title:'GET products by gender and categorie (masculino, femenino, kids, accesories, jewerly',
         method:'GET',
