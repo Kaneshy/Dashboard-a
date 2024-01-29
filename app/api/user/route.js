@@ -8,9 +8,8 @@ import { revalidatePath } from "next/cache";
 export async function POST(req, res) {
 
     const body = await req.json();
-    console.log(body,'dfdfo')
+    console.log(body, 'dfdfo')
     connectToDB();
-   
     try {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(body.password, salt);
@@ -19,12 +18,15 @@ export async function POST(req, res) {
 
         const savedUser = await newUser.save();
         revalidatePath("/dashboard/users")
+        return NextResponse.json('SignUp with credentials')
 
     } catch (err) {
         console.log(err.message)
+        return NextResponse.json('something went wrong')
+
     }
-    revalidatePath("/dashboard/users")
-    return NextResponse.json('succefull')
+
+
 };
 
 export async function GET(req, res) {
